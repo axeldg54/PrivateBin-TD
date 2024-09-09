@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "💡 Tests Unitaires ..."
-      - run: ./vendor/bin/phpunit tst
+      - run: make test
