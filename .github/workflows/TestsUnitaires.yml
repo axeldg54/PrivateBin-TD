@@ -5,6 +5,5 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run: sudo apt install phpunit php-gd php-sqlite3 php-xdebug
       - run: echo "💡 Tests Unitaires ..."
-      - run: /vendor/bin/phpunit tst
+      - run: make test
