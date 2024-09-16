@@ -1,0 +1,10 @@
+name: Tests Unitaires
+run-name: ${{ github.actor }} is testing 🚀
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Tests Unitaires"
+      - run: apt install phpunit php-gd php-sqlite3 php-xdebug
+      - run: make test
