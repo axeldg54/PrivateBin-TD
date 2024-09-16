@@ -1,0 +1,12 @@
+name: Code Coverage Text
+run-name: ${{ github.actor }} is coveraging the code in text 🚀
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Code Coverage Text"
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-text
+      - name: Couvre le code
