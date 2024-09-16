@@ -1,0 +1,13 @@
+name: Tests Unitaires
+run-name: ${{ github.actor }} is testing 🚀
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Lancer les tests et générer le rapport Cobertura
+        run: vendor/bin/phpunit --coverage-cobertura coverage/cobertura.xml
+
+        
