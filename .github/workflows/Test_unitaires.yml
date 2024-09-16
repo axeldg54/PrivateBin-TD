@@ -5,12 +5,8 @@ jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - name: Afficher un message
-        run: echo "Tests Unitaires"
-      - name: Mettre à jour le système
-        run: sudo apt-get update
-      - name: Installer PHP et dépendances
-        run: |
+      - run: echo "Tests Unitaires"
+      - run: |
           sudo apt-get install -y phpunit php-gd php-sqlite3 php-xdebug
       - name: Lancer les tests
         run: make test
