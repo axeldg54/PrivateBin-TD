@@ -9,5 +9,11 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
       - run: sudo apt install -y phpunit php-gd php-sqlite3 php-xdebug
+      - name: Installer Composer
+        run: |
+          curl -sS https://getcomposer.org/installer | php
+          sudo mv composer.phar /usr/local/bin/composer
+      - name: Installer les dépendances Composer
+        run: composer install
       - name: Lancer les tests
         run: make test
