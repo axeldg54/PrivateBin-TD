@@ -7,4 +7,4 @@ jobs:
     steps:
       - run: echo "Tests Unitaires"
       - run: apt install phpunit php-gd php-sqlite3 php-xdebug
-      - run: make test
+      - run: sudo make test
