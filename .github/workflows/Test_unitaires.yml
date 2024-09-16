@@ -6,8 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Tests Unitaires"
-      - run: sudo apt install -y phpunit php-gd php-sqlite3 php-xdebug
       - name: Check out repository code
         uses: actions/checkout@v4
+      - run: sudo apt install -y phpunit php-gd php-sqlite3 php-xdebug
       - name: Lancer les tests
         run: make test
