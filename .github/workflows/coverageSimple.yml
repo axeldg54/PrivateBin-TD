@@ -13,6 +13,8 @@ jobs:
         run: curl -sS https://getcomposer.org/installer | php && sudo mv composer.phar /usr/local/bin/composer
       - name: Installer les dépendances Composer
         run: composer install
+      - name: Suppression de la ligne vendor dans le fichier phpunit.xml (pour ne pas le couvrir)
+        run: sed -i '0,/vendor/{/vendor/d}' ./phpunit.xml
       - name: Couvre le code
         run: XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-text
       
