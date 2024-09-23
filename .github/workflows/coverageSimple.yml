@@ -8,5 +8,6 @@ jobs:
       - run: echo "Code Coverage Text"
       - name: Check out repository code
         uses: actions/checkout@v4
-      - run: XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-text
       - name: Couvre le code
+        run: XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-text
+      
