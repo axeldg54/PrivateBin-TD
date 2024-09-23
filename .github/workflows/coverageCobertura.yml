@@ -1,0 +1,19 @@
+name: Coverage Cobertura
+run-name: ${{ github.actor }} is coveraging the code in html with cobertura 🌊
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Couvre le code avec cobertura"
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - run: sudo apt install -y phpunit php-gd php-sqlite3 php-xdebug
+      - name: Installer Composer
+        run: curl -sS https://getcomposer.org/installer | php && sudo mv composer.phar /usr/local/bin/composer
+      - name: Installer les dépendances Composer
+        run: composer install
+      - name: Suppression de la ligne vendor dans le fichier phpunit.xml (pour ne pas le couvrir)
+        run: sed -i '0,/vendor/{/vendor/d}' ./phpunit.xml
+      - name: Couvre le code
+        run: vendor/bin/phpunit --coverage-cobertura coverage/cobertura.xml
