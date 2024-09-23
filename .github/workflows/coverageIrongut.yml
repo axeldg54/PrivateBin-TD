@@ -35,3 +35,4 @@ jobs:
         with:
           recreate: true
           path: code-coverage-results.md
+      - run: cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY 
