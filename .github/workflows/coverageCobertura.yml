@@ -15,5 +15,7 @@ jobs:
         run: composer install
       - name: Suppression de la ligne vendor dans le fichier phpunit.xml (pour ne pas le couvrir)
         run: sed -i '0,/vendor/{/vendor/d}' ./phpunit.xml
+      - name: crée le dossier coverage
+        run: mkdir coverage
       - name: Couvre le code
         run: vendor/bin/phpunit --coverage-cobertura coverage/cobertura.xml
