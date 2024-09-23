@@ -1,13 +1,18 @@
-name: Code Coverage Text
-run-name: ${{ github.actor }} is coveraging the code in text 🚀
+name: Coverage Simple
+run-name: ${{ github.actor }} is coveraging the code in text 🚓
 on: [push]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Code Coverage Text"
+      - run: echo "Couvre le code simplement"
       - name: Check out repository code
         uses: actions/checkout@v4
+      - run: sudo apt install -y phpunit php-gd php-sqlite3 php-xdebug
+      - name: Installer Composer
+        run: curl -sS https://getcomposer.org/installer | php && sudo mv composer.phar /usr/local/bin/composer
+      - name: Installer les dépendances Composer
+        run: composer install
       - name: Couvre le code
         run: XDEBUG_MODE=coverage ./vendor/bin/phpunit --coverage-text
       
