@@ -1,5 +1,5 @@
 name: Coverage Cobertura & Summary
-run-name: ${{ github.actor }} is coveraging the code in xml with cobertura 🌊 and make the summary 🍕
+run-name: ${{ github.actor }} is coveraging and make the summary 🍕
 on: [push]
 jobs:
   Explore-GitHub-Actions:
@@ -21,4 +21,4 @@ jobs:
         uses: irongut/CodeCoverageSummary@v1.3.0
         with:
           filename: cobertura.xml
-          summaryFileLocation: 'chemin/vers/votre/rapport/cobertura.xml' 
+      - run: cat code-coverage-results.md >> $GITHUB_STEP_SUMMARY
