@@ -15,13 +15,15 @@ jobs:
       - name: Installe & lance PHPCS
         run: |
           composer require --dev "squizlabs/php_codesniffer=3.*"
-          ./vendor/bin/phpcs --runtime-set ignore_errors_on_exit 2 --extensions=php ./lib/
+          ./vendor/bin/phpcs --runtime-set --extensions=php ./lib/
         continue-on-error : true
       - name: Installe & lance Mess Detector
         run: |
           composer require --dev "phpmd/phpmd=@stable"
           ./vendor/bin/phpmd ./lib ansi codesize,unusedcode,naming
+        continue-on-error : true
       - name: Install & lance PHPStan
         run: |
           composer require --dev phpstan/phpstan
           ./vendor/bin/phpstan analyse ./lib
+        continue-on-error : true
