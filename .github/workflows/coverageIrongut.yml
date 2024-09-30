@@ -16,7 +16,7 @@ jobs:
       - name: Suppression de la ligne vendor dans le fichier phpunit.xml (pour ne pas le couvrir)
         run: sed -i '0,/vendor/{/vendor/d}' ./phpunit.xml
       - name: Couvre le code
-        run: XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-cobertura cobertura.xml
+        run: XDEBUG_MODE=coverage vendor/bin/phpunit --coverage-cobertura cobertura.md
       - name: Code Coverage Summary Report
         uses: irongut/CodeCoverageSummary@v1.3.0
         with:
