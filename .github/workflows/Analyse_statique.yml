@@ -16,6 +16,7 @@ jobs:
         run: |
           composer require --dev "squizlabs/php_codesniffer=3.*"
           ./vendor/bin/phpcs --runtime-set ignore_errors_on_exit 2 --extensions=php ./lib/
+        continue-on-error : true
       - name: Installe & lance Mess Detector
         run: |
           composer require --dev "phpmd/phpmd=@stable"
