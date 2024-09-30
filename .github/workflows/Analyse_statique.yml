@@ -1,0 +1,26 @@
+name: PHPCS & PHPMD & PHPStan
+run-name: ${{ github.actor }} is analysis statikis 🌵
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Analyse statique"
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: installe les dépendances
+        run: sudo apt install php-xmlwriter
+      - name: Installe Composer
+        run: composer install
+      - name: Installe & lance PHPCS
+        run: |
+          composer require --dev "squizlabs/php_codesniffer=3.*"
+          ./vendor/bin/phpcs --extensions=php ./lib/    
+      - name: Installe & lance Mess Detector
+        run: |
+          composer require --dev "phpmd/phpmd=@stable"
+          ./vendor/bin/phpmd ./lib ansi codesize,unusedcode,naming
+      - name: Install & lance PHPStan
+        run: |
+          composer require --dev phpstan/phpstan
+          ./vendor/bin/phpstan analyse ./lib
