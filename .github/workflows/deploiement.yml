@@ -17,4 +17,5 @@ jobs:
         username: ${{ secrets.name }}
         password: ${{ secrets.mdp }}
         local-dir: './'
+        server-dir: '/www/'
         exclude: vendor/
