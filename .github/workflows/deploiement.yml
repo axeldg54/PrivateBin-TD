@@ -1,0 +1,15 @@
+name: Déploiement 🚀
+run-name: ${{ github.actor }} is deploying online ! 🚀
+on: push
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v4
+
+      with:
+        server: ${{ secrets.ip }}
+        username: ${{ secrets.name }}
+        password: ${{ secrets.mdp }}
