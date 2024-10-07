@@ -12,6 +12,7 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
-        server: https://group19.bleumatin.fr/
+        server: ${{ secrets.ip }}
+        port: 21
         username: ${{ secrets.name }}
         password: ${{ secrets.mdp }}
